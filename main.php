@@ -120,29 +120,29 @@ if (!class_exists('FB_CHAT_PLUGIN')) {
                 $tracking_id = $options['fb_id'];
                 if(isset($tracking_id) && !empty($tracking_id)){
                     $ouput = <<<EOT
-                    <!-- Tracking code generated with Facebook Chat plugin v{$this->plugin_version} -->
-                    <script>
-                    window.fbAsyncInit = function() {
-                      FB.init({
-                        appId            : '1820043301628783',
-                        autoLogAppEvents : true,
-                        xfbml            : true,
-                        version          : 'v2.11'
-                      });
-                    };
+<!-- Tracking code generated with Facebook Customer Chat plugin v{$this->plugin_version} -->
+<script>
+window.fbAsyncInit = function() {
+  FB.init({
+    appId            : '1820043301628783',
+    autoLogAppEvents : true,
+    xfbml            : true,
+    version          : 'v2.11'
+  });
+};
 
-                    (function(d, s, id){
-                       var js, fjs = d.getElementsByTagName(s)[0];
-                       if (d.getElementById(id)) {return;}
-                       js = d.createElement(s); js.id = id;
-                       js.src = "https://connect.facebook.net/en_US/sdk.js";
-                       fjs.parentNode.insertBefore(js, fjs);
-                     }(document, 'script', 'facebook-jssdk'));
-                  </script>
-                    <div class="fb-customerchat"
-                     page_id="$tracking_id">
-                    </div>
-                    <!-- / Facebook Chat plugin -->
+(function(d, s, id){
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+   js.src = "https://connect.facebook.net/en_US/sdk.js";
+   fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+</script>
+<div class="fb-customerchat"
+ page_id="$tracking_id" minimized="true">
+</div>
+<!-- / Facebook Customer Chat plugin -->
 EOT;
 
                     echo $ouput;
